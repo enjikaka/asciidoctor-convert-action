@@ -49,7 +49,7 @@ convertAdocToPdf() {
   dir="${subdir%/}"
   subdirname="${dir##*/}"
   outputPath="${outputDir}/${subdirname}.pdf"
-  inputFile="$inputPath/index.adoc"
+  inputFile="$subdir/index.adoc"
 
   echo "Writing $inputFile to $outputPath"
 
