@@ -6,17 +6,17 @@ branding:
   color: pink
 inputs:
   inputPath:
-    description: 'path the adoc files are located'
+    description: 'Path the adoc files are located in'
     required: true
   outputPath:
-    description: 'path were the built files will be saved to'
+    description: 'Path were the built files will be saved to'
     required: true
   generateEpub:
-    description: 'if slides are enableed or not'
+    description: 'If you want to generate ePUB or not'
     required: false
     default: 'true'
   generatePdf:
-    description: 'if slides are enableed or not'
+    description: 'If you want to generate PDF or not'
     required: false
     default: 'true'
 runs:
