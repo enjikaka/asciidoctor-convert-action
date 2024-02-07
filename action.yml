@@ -8,8 +8,8 @@ inputs:
   inputPath:
     description: 'Path the adoc files are located in'
     required: true
-  outputPath:
-    description: 'Path were the built files will be saved to'
+  outputDir:
+    description: 'Directory were the built files will be saved to'
     required: true
   generateEpub:
     description: 'If you want to generate ePUB or not'
