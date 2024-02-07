@@ -2,7 +2,7 @@
 
 convertFolderToEpub() {
     inputPath=$1
-    outputDir=$1
+    outputDir=$2
 
     echo "=== Compiling ePUB  ==="
 
@@ -30,7 +30,7 @@ convertAdocToEpub() {
 
 convertFolderToPdf() {
     inputPath=$1
-    outputDir=$1
+    outputDir=$2
 
     echo "=== Compiling PDF  ==="
 
