@@ -8,18 +8,19 @@ convertFolderToEpub() {
 
     i=1
     for subdir in $(find "$inputPath" -type d -maxdepth 1); do
-        convertAdocToEpub "$subdir" "$outputDir"
+        convertAdocToEpub "$inputPath" "$subdir" "$outputDir"
 
         i=$((i+1))
     done
 }
 
 convertAdocToEpub() {
-  subdir=$1
-  outputDir=$2
+  inputPath=$1
+  subdir=$2
+  outputDir=$3
   dir="${subdir%/}"
-  subdir="${dir##*/}"
-  outputPath="${outputDir}/${subdir}.epub"
+  subdirname="${dir##*/}"
+  outputPath="${outputDir}/${subdirname}.epub"
   inputFile="$subdir/index.adoc"
 
   echo "Writing $inputFile to $outputPath"
@@ -35,19 +36,20 @@ convertFolderToPdf() {
 
     i=1
     for subdir in $(find "$inputPath" -type d -maxdepth 1); do
-        convertAdocToPdf "$f" "$outputDir"
+        convertAdocToPdf "$inputPath" "$subdir" "$outputDir"
 
         i=$((i+1))
     done
 }
 
 convertAdocToPdf() {
-  subdir=$1
-  outputDir=$2
+  inputPath=$1
+  subdir=$2
+  outputDir=$3
   dir="${subdir%/}"
-  subdir="${dir##*/}"
-  outputPath="${outputDir}/${subdir}.pdf"
-  inputFile="$subdir/index.adoc"
+  subdirname="${dir##*/}"
+  outputPath="${outputDir}/${subdirname}.pdf"
+  inputFile="$inputPath/index.adoc"
 
   echo "Writing $inputFile to $outputPath"
 
