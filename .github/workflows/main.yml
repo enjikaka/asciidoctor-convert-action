@@ -5,11 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
+      - uses: actions/checkout@v4
+      - name: Build books
+        id: build
         uses: enjikaka/asciidoctor-convert-action@v0.1
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          inputPath: test_input_path
+          outputPath: build
