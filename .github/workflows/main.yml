@@ -6,7 +6,7 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v4
-      - uses: enjikaka/asciidoctor-convert-action@v0.4
+      - uses: enjikaka/asciidoctor-convert-action@v0.5
         name: Build books
         with:
           inputPath: test_input_path
