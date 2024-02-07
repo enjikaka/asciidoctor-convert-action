@@ -7,9 +7,7 @@ convertFolderToEpub() {
     echo "=== Compiling ePUB  ==="
 
     i=1
-    numberOfFiles=$(find "$inputPath" -type f -name "*.adoc" | wc -l)
-    for f in $(find "$inputPath" -type f -name "*.adoc"); do
-        echo "[$((i*100 / numberOfFiles)) %] Compiling $f"
+    for subdir in $(find "$inputPath" -type d -maxdepth 1); do
         convertAdocToEpub "$f" "$outputDir"
 
         i=$((i+1))
@@ -35,9 +33,7 @@ convertFolderToPdf() {
     echo "=== Compiling PDF  ==="
 
     i=1
-    numberOfFiles=$(find "$inputPath" -type f -name "*.adoc" | wc -l)
-    for f in $(find "$inputPath" -type f -name "*.adoc"); do
-        echo "[$((i*100 / numberOfFiles)) %] Compiling $f"
+    for subdir in $(find "$inputPath" -type d -maxdepth 1); do
         convertAdocToPdf "$f" "$outputDir"
 
         i=$((i+1))
