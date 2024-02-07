@@ -1,0 +1,7 @@
+= Test Book 2
+Test Author 2
+:doctype: book
+
+== Test Chapter
+
+Lorem ipsum test paragraph
