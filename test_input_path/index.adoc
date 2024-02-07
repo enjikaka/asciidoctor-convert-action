@@ -1,7 +1,0 @@
-= Test Book
-Test Author
-:doctype: book
-
-== Test Chapter
-
-Lorem ipsum test paragraph

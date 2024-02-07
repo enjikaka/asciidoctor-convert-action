@@ -19,9 +19,9 @@ convertFolderToEpub() {
 convertAdocToEpub() {
   file=$1
   outputDir=$2
-  fullname="${file##*/}"
-  filename="${fullname%.*}"
-  outputPath="${outputDir}/${filename}.epub"
+  dir="${file%/}"
+  subdir="${dir##*/}"
+  outputPath="${outputDir}/${subdir}.epub"
 
   echo "Writing $filename to $outputPath"
 
@@ -47,9 +47,9 @@ convertFolderToPdf() {
 convertAdocToPdf() {
   file=$1
   outputDir=$2
-  fullname="${file##*/}"
-  filename="${fullname%.*}"
-  outputPath="${outputDir}/${filename}.pdf"
+  dir="${file%/}"
+  subdir="${dir##*/}"
+  outputPath="${outputDir}/${subdir}.pdf"
 
   echo "Writing $filename to $outputPath"
 

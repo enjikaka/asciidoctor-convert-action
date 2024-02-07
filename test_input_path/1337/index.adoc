@@ -2,6 +2,6 @@
 Test Author 2
 :doctype: book
 
-== Test Chapter
+include::chapters/chapter1.adoc[]
 
-Lorem ipsum test paragraph
+include::chapters/chapter2.adoc[]
