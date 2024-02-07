@@ -1,16 +1,16 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  press_books:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Press books
     steps:
       - uses: actions/checkout@v4
       - uses: enjikaka/asciidoctor-convert-action@v0.5
         name: Build books
         with:
           inputPath: test_input_path
-          outputPath: build
+          outputDir: build
       - uses: actions/upload-artifact@v4
         with:
           name: books
