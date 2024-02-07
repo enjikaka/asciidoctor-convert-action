@@ -19,7 +19,7 @@ convertFolderToEpub() {
 convertAdocToEpub() {
   file=$1
   outputPath=$2
-  filename="$(basename -- $FILE)"
+  filename="${file%.*}"
 
   asciidoctor-epub3 "$file" -o "$outputPath/$filename"
 }
@@ -40,10 +40,10 @@ convertFolderToPdf() {
     done
 }
 
-convertAdocToEpub() {
+convertAdocToPdf() {
   file=$1
   outputPath=$2
-  filename="$(basename -- $FILE)"
+  filename="${file%.*}"
 
   asciidoctor-pdf "$file" -o "$outputPath/$filename"
 }
