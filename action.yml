@@ -1,17 +1,21 @@
 name: 'Asciidoctor Convert Action'
-description: 'Converts .adoc files to html files. adoc files in the slides folder will be converted using reveal js'
-author: 'Quirin Ecker'
+description: 'Converts .adoc files to ePUB and/or PDF files.'
+author: 'Jeremy Karlsson'
 branding:
   icon: book
-  color: orange
+  color: pink
 inputs:
   inputPath:
     description: 'path the adoc files are located'
     required: true
   outputPath:
-    description: 'path were the html files will be outputed'
+    description: 'path were the built files will be saved to'
     required: true
-  slides:
+  generateEpub:
+    description: 'if slides are enableed or not'
+    required: false
+    default: 'true'
+  generatePdf:
     description: 'if slides are enableed or not'
     required: false
     default: 'true'
@@ -21,4 +25,5 @@ runs:
   args:
     - ${{ inputs.inputPath }}
     - ${{ inputs.outputPath }}
-    - ${{ inputs.slides }}
+    - ${{ inputs.generateEpub }}
+    - ${{ inputs.generatePdf }}
