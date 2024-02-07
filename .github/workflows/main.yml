@@ -6,9 +6,12 @@ jobs:
     name: A job to say hello
     steps:
       - uses: actions/checkout@v4
-      - name: Build books
-        id: build
-        uses: enjikaka/asciidoctor-convert-action@v0.1
+      - uses: enjikaka/asciidoctor-convert-action@v0.1
+        name: Build books
         with:
           inputPath: test_input_path
           outputPath: build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: books
+          path: build
