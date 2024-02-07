@@ -6,7 +6,7 @@ jobs:
     name: Press books
     steps:
       - uses: actions/checkout@v4
-      - uses: enjikaka/asciidoctor-convert-action@v0.7
+      - uses: enjikaka/asciidoctor-convert-action@v0.8
         name: Build books
         with:
           inputPath: test_input_path
