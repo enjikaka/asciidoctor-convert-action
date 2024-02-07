@@ -8,22 +8,23 @@ convertFolderToEpub() {
 
     i=1
     for subdir in $(find "$inputPath" -type d -maxdepth 1); do
-        convertAdocToEpub "$f" "$outputDir"
+        convertAdocToEpub "$subdir" "$outputDir"
 
         i=$((i+1))
     done
 }
 
 convertAdocToEpub() {
-  file=$1
+  subdir=$1
   outputDir=$2
-  dir="${file%/}"
+  dir="${subdir%/}"
   subdir="${dir##*/}"
   outputPath="${outputDir}/${subdir}.epub"
+  inputFile="$subdir/index.adoc"
 
-  echo "Writing $filename to $outputPath"
+  echo "Writing $inputFile to $outputPath"
 
-  asciidoctor-epub3 "$file" -o "$outputPath"
+  asciidoctor-epub3 "$inputFile" -o "$outputPath"
 }
 
 convertFolderToPdf() {
@@ -41,13 +42,14 @@ convertFolderToPdf() {
 }
 
 convertAdocToPdf() {
-  file=$1
+  subdir=$1
   outputDir=$2
-  dir="${file%/}"
+  dir="${subdir%/}"
   subdir="${dir##*/}"
   outputPath="${outputDir}/${subdir}.pdf"
+  inputFile="$subdir/index.adoc"
 
-  echo "Writing $filename to $outputPath"
+  echo "Writing $inputFile to $outputPath"
 
-  asciidoctor-pdf "$file" -o "$outputPath"
+  asciidoctor-pdf "$inputFile" -o "$outputPath"
 }
