@@ -5,9 +5,15 @@ branding:
   icon: book
   color: purple
 inputs:
-  inputDir:
-    description: 'Path the adoc files are located in'
-    required: true
+  inputBooks:
+    description: 'Path the a folder that has folders with index.adoc files'
+    required: false
+  inputBook:
+    description: 'Direct path to a single adoc file'
+    required: false
+  outputName:
+    description: 'Name of generated files when using inputBook'
+    required: false
   outputDir:
     description: 'Directory were the built files will be saved to'
     required: true
@@ -24,6 +30,8 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.inputDir }}
+    - ${{ inputs.inputBook }}
+    - ${{ inputs.outputName }}
     - ${{ inputs.outputDir }}
     - ${{ inputs.generateEpub }}
     - ${{ inputs.generatePdf }}

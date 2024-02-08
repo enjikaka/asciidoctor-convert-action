@@ -1,0 +1,15 @@
+= Test Book 3
+Test Author 3
+:doctype: book
+
+== Chapter 1
+
+Lorem ipsum dolor sit amet 1...
+
+== Chapter 2
+
+Lorem ipsum dolor sit amet 2...
+
+== Chapter 3
+
+Lorem ipsum dolor sit amet 3...

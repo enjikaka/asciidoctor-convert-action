@@ -9,9 +9,24 @@ jobs:
       - uses: enjikaka/asciidoctor-convert-action@v0.18
         name: Build books
         with:
-          inputDir: test_input_path
-          outputDir: build
+          inputBooks: test_data/books
+          outputDir: build/books
       - uses: actions/upload-artifact@v4
         with:
           name: books
-          path: build
+          path: build/books
+  press_book:
+    runs-on: ubuntu-latest
+    name: Press single book
+    steps:
+      - uses: actions/checkout@v4
+      - uses: enjikaka/asciidoctor-convert-action@v0.18
+        name: Build books
+        with:
+          inputBook: test_data/1339/index.adoc
+          outputName: "1339"
+          outputDir: build/book-1339
+      - uses: actions/upload-artifact@v4
+        with:
+          name: book-1339
+          path: build/book-1339

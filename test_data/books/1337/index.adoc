@@ -1,5 +1,5 @@
-= Test Book 2
-Test Author 2
+= Test Book 1
+Test Author 1
 :doctype: book
 
 include::chapters/chapter1.adoc[]
