@@ -6,7 +6,7 @@ jobs:
     name: Press books
     steps:
       - uses: actions/checkout@v4
-      - uses: enjikaka/asciidoctor-convert-action@v0.20
+      - uses: enjikaka/asciidoctor-convert-action@v0.22
         name: Build books
         with:
           inputBooks: test_data/books
@@ -20,7 +20,7 @@ jobs:
     name: Press single book
     steps:
       - uses: actions/checkout@v4
-      - uses: enjikaka/asciidoctor-convert-action@v0.20
+      - uses: enjikaka/asciidoctor-convert-action@v0.22
         name: Build books
         with:
           inputBook: test_data/1339/index.adoc
