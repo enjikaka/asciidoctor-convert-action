@@ -42,8 +42,8 @@ function convert_asciidoc_to {
         asciidoctor-epub3 "$input" -o "$output"
     elif [ "$format" = "pdf" ]
     then
-        asciidoctor-pdf "$input" --theme default-for-print -a media=print -o "print-$output"
-        asciidoctor-pdf "$input" --theme default-for-print -a media=press -o "press-$output"
+        asciidoctor-pdf "$input" --theme default-for-print -a media=print -o "${output%.pdf}.print.pdf"
+        asciidoctor-pdf "$input" --theme default-for-print -a media=press -o "${output%.pdf}.press.pdf"
     else
         echo "Unsupported format $format".
         exit 1;
