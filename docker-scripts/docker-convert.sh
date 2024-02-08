@@ -2,7 +2,7 @@
 
 source /docker-scripts/docker-convert-util.sh
 
-inputPath="$INPUT_INPUTPATH"
+inputDir="$INPUT_INPUTDIR"
 outputDir="$INPUT_OUTPUTDIR"
 epub="$INPUT_GENERATEEPUB"
 pdf="$INPUT_GENERATEPDF"
@@ -10,10 +10,10 @@ pdf="$INPUT_GENERATEPDF"
 mkdir $outputPath
 
 if [ $epub = true ]; then
-    convertFolderToEpub "$inputPath" "$outputDir"
+    convertFolderTo "epub" "$inputDir" "$outputDir"
 fi
 
 
 if [ $pdf = true ]; then
-    convertFolderToPdf "$inputPath" "$outputDir"
+    convertFolderTo "pdf" "$inputDir" "$outputDir"
 fi

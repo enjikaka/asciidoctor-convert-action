@@ -3,9 +3,9 @@ description: 'Converts .adoc files to ePUB and/or PDF files.'
 author: 'Jeremy Karlsson'
 branding:
   icon: book
-  color: pink
+  color: purple
 inputs:
-  inputPath:
+  inputDir:
     description: 'Path the adoc files are located in'
     required: true
   outputDir:
@@ -23,7 +23,7 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - ${{ inputs.inputPath }}
+    - ${{ inputs.inputDir }}
     - ${{ inputs.outputPath }}
     - ${{ inputs.generateEpub }}
     - ${{ inputs.generatePdf }}
