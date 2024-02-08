@@ -18,7 +18,6 @@ function convert_folder_to {
         then
             echo "Compiling book $sub_directory to $format..."
 
-            output_dir=$2
             directory="${sub_directory%/}"
             sub_directory_name="${directory##*/}"
             output_file="${output_dir}/${sub_directory_name}.${format}"
