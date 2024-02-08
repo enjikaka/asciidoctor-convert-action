@@ -24,6 +24,6 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.inputDir }}
-    - ${{ inputs.outputPath }}
+    - ${{ inputs.outputDir }}
     - ${{ inputs.generateEpub }}
     - ${{ inputs.generatePdf }}
