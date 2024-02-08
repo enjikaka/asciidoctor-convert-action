@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-convertFolderTo() {
+function convert_folder_to {
     format=$1
     input_dir=$2
     output_dir=$3
@@ -18,14 +18,18 @@ convertFolderTo() {
         output_file="${output_dir}/${sub_directory_name}.${format}"
         input_file="$sub_directory/index.adoc"
 
-        convertAdocTo "$format" "$input_file" "$output_file"
+        convert_asciidoc_to "$format" "$input_file" "$output_file"
 
         i=$((i+1))
     done
 }
 
-convertAdocTo { args : string format, string inputFile , string output } {
-    echo "Writing $input to $outputFile"
+function convert_asciidoc_to {
+    format=$1
+    input=$2
+    output=$3
+
+    echo "Writing $input to $output"
 
     if [ $format = "epub" ]
     then
