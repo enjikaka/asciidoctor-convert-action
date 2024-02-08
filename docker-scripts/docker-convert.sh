@@ -9,8 +9,6 @@ output_dir="$INPUT_OUTPUTDIR"
 generate_epub="$INPUT_GENERATEEPUB"
 generate_pdf="$INPUT_GENERATEPDF"
 
-mkdir "$output_dir"
-
 if [ -n "$input_book" ]
     then
     if [ "$generate_epub" = true ]

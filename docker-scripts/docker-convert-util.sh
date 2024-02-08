@@ -35,15 +35,20 @@ function convert_asciidoc_to {
     input=$2
     output=$3
 
-    echo "Writing $input to $output"
-
     if [ "$format" = "epub" ]
     then
+        echo "Writing $input to $output"
         asciidoctor-epub3 "$input" -o "$output"
     elif [ "$format" = "pdf" ]
     then
-        asciidoctor-pdf "$input" --theme default-for-print -a media=print -o "${output%.pdf}.print.pdf"
-        asciidoctor-pdf "$input" --theme default-for-print -a media=press -o "${output%.pdf}.press.pdf"
+        print_output=${output/.pdf/.print.pdf}
+        press_output=${output/.pdf/.press.pdf}
+
+        echo "Writing $input to $print_output"
+        asciidoctor-pdf "$input" --theme default-for-print -a media=print -o "$print_output"
+
+        echo "Writing $input to $press_output"
+        asciidoctor-pdf "$input" --theme default-for-print -a media=press -o "$press_output"
     else
         echo "Unsupported format $format".
         exit 1;
