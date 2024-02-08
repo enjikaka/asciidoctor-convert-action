@@ -22,7 +22,6 @@ function convert_folder_to {
             sub_directory_name="${directory##*/}"
             output_file="${output_dir}/${sub_directory_name}.${format}"
 
-
             convert_asciidoc_to "$format" "$input_file" "$output_file"
         fi
 
@@ -42,13 +41,13 @@ function convert_asciidoc_to {
     elif [ "$format" = "pdf" ]
     then
         print_output=${output/.pdf/.print.pdf}
-        press_output=${output/.pdf/.press.pdf}
+        prepress_output=${output/.pdf/.prepress.pdf}
 
         echo "Writing $input to $print_output"
-        asciidoctor-pdf "$input" --theme default-for-print -a media=print -o "$print_output"
+        asciidoctor-pdf --theme default-for-print -a media=print -o "$print_output" "$input"
 
-        echo "Writing $input to $press_output"
-        asciidoctor-pdf "$input" --theme default-for-print -a media=press -o "$press_output"
+        echo "Writing $input to $prepress_output"
+        asciidoctor-pdf --theme default-for-print -a media=prepress -o "$prepress_output" "$input"
     else
         echo "Unsupported format $format".
         exit 1;
