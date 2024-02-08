@@ -31,10 +31,10 @@ function convert_asciidoc_to {
 
     echo "Writing $input to $output"
 
-    if [ $format = "epub" ]
+    if [ "$format" = "epub" ]
     then
         asciidoctor-epub3 "$input" -o "$output"
-    elif [ $format = "pdf" ]
+    elif [ "$format" = "pdf" ]
     then
         asciidoctor-pdf "$input" -o "$output"
     else
