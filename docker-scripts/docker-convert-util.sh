@@ -14,7 +14,7 @@ function convert_folder_to {
     do
         input_file="$sub_directory/index.adoc"
 
-        if [ -f "$FILE" ]
+        if [ -f "$input_file" ]
         then
             echo "Compiling book $sub_directory to $format..."
 
